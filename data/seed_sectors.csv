@@ -1,0 +1,10 @@
+"Id","Name","EmailSuffixes","Index","IsFunctional"
+"f857c424-7473-433a-86a1-592cfd10d825","Other",,8,FALSE
+"ec9e2c32-7061-4f57-97e6-5529199fdcfd","Other health and social care","nhs.uk,nhs.net",6,FALSE
+"db0c99c7-4a85-4d45-b013-e0266d9a1658","Construction",,4,FALSE
+"b3c83ba5-1726-4898-aa75-c933870e0d62","HM Forces","mod.uk,mil.uk",2,FALSE
+"f6b2f555-6ffb-44e1-ad4b-529def895acd","Education","ac.uk,sch.uk",7,FALSE
+"e302c0cc-81e7-4dd7-b10c-a206f22aa072","National Health Service","nhs.uk,nhs.net",5,FALSE
+"bdeac2c4-53b5-4ba2-8d29-00a318b45cf9","Police","police.uk",3,FALSE
+"9cc87489-39ac-4180-b281-4c8ba013ae55","Civil Service","gov.uk,gov.scot,gov.wales,mod.uk,mil.uk",1,FALSE
+"562cbf2b-8818-4983-80d1-df1ff6fea5e5","Local Authority","gov.uk",0,TRUE

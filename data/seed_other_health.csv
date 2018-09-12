@@ -1,0 +1,12 @@
+"Id","Name","Code","EmailSuffixes","SectorTypeId","IsSeeded","Region"
+"f16ce292-5b71-4a80-ab07-84e9fad7256e","National Institute For Health and Clinical Excellence",,"@nice.org.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"6c984850-e604-4d57-b14b-a87571e5eb2f","The Board of Commissioners of the Royal Hospital at Chelsea",,"@chelsea-pensioners.org.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"8ef6e74e-b66a-4479-99b0-58687851ae2f","NHS Digital ",,"@nhsdigital.nhs.net  ","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"1e645163-6b50-497d-ac47-bcfb0daf6a17","Health Education England",,"@hee.nhs.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"fc0bcc1f-5f5c-44fa-a016-8e3d325e2762","The Health Research Authority",,"@nhs.net","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"cae8b949-9f49-450c-94d7-a0eb422549fc","The Human Tissue Authority",,"@hta.gov.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"3cb3ce39-928d-4ca1-9f9a-e417377d643f","The Medical Research Council",,"@headoffice.mrc.ac.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"4e256763-6443-49b1-a273-5ce9360efd29","Mental Welfare Commission for Scotland",,"@mwcscot.org.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"bebddc75-3422-4e88-ab5e-e39fb6484863","The National Institute for Health and Care Excellence",,"@nice.org.uk","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"7a6be232-c169-48ec-a3fb-79b495f6a536","The Scottish Ambulance Service Board",,"@nhs.net","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
+"c7e5b0a5-dabf-4376-b98d-02bb1dbb6fea","Social Care and Social Work Improvement Scotland",,"@careinspectorate.com","ec9e2c32-7061-4f57-97e6-5529199fdcfd",TRUE,
