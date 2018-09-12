@@ -1,0 +1,42 @@
+Feature: Home Page
+
+Scenario: User sees Title 
+        Given I have entered the URL of the facility time service
+        When I first access the home page
+        Then I should see a homepage with a heading in large bold text at the top of the page that states:
+        ‘Submit Trade Union Facility TIme Data’ 
+        And below this I should see plain text with the words:
+        “Use this service to enter facility time data for your public sector organisation for 1 April 2017 to 31 March 2018.”
+        And below this I should see a subheading written in bold text with the words:
+        “You will need to submit:”
+        And below this should see a list of sentences written in bullet points and in plain text stating:
+        “the number of trade union representatives in your organisation
+        the amount of hours spent on facility time
+        the amount spent on facility time
+        the number of paid trade union activities”
+        And below this list I should see a clickable call to action button in green saying ‘Start Now’
+        
+Scenario: User Sees requirements to complete Form 
+        Given I have entered the URL of the facility time service
+        When I first access the home page
+        Then I should subheading in bold text under the ‘Start Now’ button that states “Before You Start”
+        And below this I should see these words in plain text:
+        “You must be the authorised representative to report facility time on behalf of your organisation.
+        You're not required to report your facility time data if you have less than 50 full-time equivalent employees.”
+        Scenario: User sees links to legislation
+        Given I have entered the URL of the Facility Time Service
+        When I first access the home page 
+        Then I should see a subheading to the right of the page written in bold text  with with the word ‘Guidance’
+        And below this I should see this clickable hyperlink link to the legislation: 
+        And below this I should see this clickable hyperlink link to the legislation guidance:
+        And below this I should see text stating: 
+         'If you have any queries or concerns please get in touch with the Policy Team by
+        completing this ******”
+          
+Scenario: User sees contact details for Policy Team
+        Given I have entered the URL of the Facility Time Service
+        When I first access the home page 
+        Then I should see a bold heading stating: 'Get in Touch With Us'
+        And below this I should see text stating: 
+         'If you have any queries or concerns please get in touch with the Policy Team by
+        completing this ******”

@@ -1,0 +1,130 @@
+Feature: Form Fields
+
+Scenario: User Selects Org Size Radio Button
+          Given I have successfully confirmed my email address and received a URL link to the TUFT service
+          When I click the URL token in my email
+          Then I should land on a page with a title in bold stating: 
+          'Step 1 of 6'
+          'How many employees are in your organisation?'
+          And above this page title I should see the name of the organization which I selected from the 'Organization' page
+          And below this I should see these words in plain text:
+          'Submission period: 1 April 2017 to 31 March 2018'
+          And below this I should see plain text that states:
+          'This includes full-time and part-time employees'
+          And below this I should see a list of 5 selectable radio buttons on the page with corresponding text beside each stating:
+          0 to 49
+          50 to 1,500
+          1,501 to 5,000
+          5,001 to 9,999
+          10,000 and above
+          And below this I should see a clickable 'Continue' buton in Green
+          
+Sad Path
+
+Scenario: User Attempts to Select More than 1 Size 
+          Given I have already selected a size from the radio buttons
+          When I attempt to select another size
+          Then my new selection should replace the initial selection
+          And I should not be able to select more than one size at the same time
+          
+Scenario: User Attempts to leave size buttons unselected
+          Given I have landed on the size selection page
+          When I attempt to click 'continue' without selecting a size
+          Then I should be prompted with an error message that states 
+	  "You must select one option before you can continue."
+	  And I should not be able to proceed with completing the rest of the form until this is done
+
+
+Scenario: User Identifies Number of FTEs
+          Given I have correctly populated the fields on the 'Org Size' page 
+          When I click 'Continue'
+          Then I should land on a page with the heading in bold stating:
+          'Step 2 of 6'
+          'Trade union representatives and full-time equivalents (FTE)'
+          And below this I should see a sub heading in plain text stating:
+          'How many employees were trade union representatives from 1 April 2017 to 31 March 2018?'
+          And below this I should see a free text numeric field with a text limit of 4 characters
+          And below this I should see a sub heading in plain text that states:
+          'What is the FTE number of trade union representatives for this period?'
+          And below this I should see a clickable hyperlink that states:
+          'Calculate your FTE'
+          And when this is clicked I should see the hyhperlink expand to reveal following text below it stating:
+          'For example, if an organisation had 4 employees, 2 full time (37 hours each) and 2 part time who worked 16 and 25 hours respectively, the calculation would be: 
+          2 full time employees = 2 FTE employees
+          1 part time (16 hours) = 0.5 FTE employees
+          1 part time (25 hours) = 0.7 FTE employees
+          Total FTE = 3.2 FTE employees'
+          And I should be able to hide this text by clicking the hyperlink again
+          And below this hyperlink I should see a free text number field with a text limit of 4 characters
+          And below this text field I should see a clickable 'continue' button in green
+
+Scenario: User Identifies Percentage of Time
+          Given I have correctly populated the fields on the 'Number of FTEs' page 
+          When I click 'Continue'
+          Then I should land on a page with the heading in bold stating:
+	  'Step 3 of 6
+	  'Percentage of working hours spent on facility time'
+	  And below this I should see a subheading in plain text that states:
+	  'How many trade union representatives spent the following percentages of their working hours on facility time from 1 April 2017 to 31 March 2018?'
+	  And below this I should see 4 free text numeric fields with text limits of 4 numeric characters
+	  And each of these text fields should allow decimal points of up to 2 places
+	  And above these text fields I should see corresponding headings on each that state:
+	  '0% working hours
+	  1 to 50% working hours
+	  51 to 99% working hours
+	  100% working hours'
+	  And below the last text field I should see a clickable 'continue' button in green
+	  
+Scenario: User Identifies Total Pay Bill
+          Given I have correctly populated the fields on the 'Percentage of workings hrs' page 
+          When I click 'Continue'
+          Then I should land on a page with the heading in bold stating:
+          'Step 4 of 6'
+          'Total pay bill and facility time costs'
+          And below this I should see a sub heading in plain text stating:
+          'What is the total pay bill?'
+	  And below this I should see a sub heading in plain text stating:
+	  'This includes pension and national insurance contributions'
+	  And below this I should see a free text numeric field with a text limit of 4 characters
+	  And to the left of this text fied I should see a '£' sign in bold
+	  And this text field should only allow decimal points of up to 2 places
+	  And below this I should see a sub heading in plain text that states:
+          'What is the total cost of facility time?'
+          And below this I should see a free text numeric field with a text limit of 4 characters
+	  And to the left of this text fied I should see a '£' sign in bold
+	  And this text field should only allow decimal points of up to 2 places
+	  And below this I should see text in bold that states:
+	  'The percentage of pay spent on facility time is'
+	  And below this I should see large text displayed in bold which shows the auto-calculated percentage of the 2 fields above as a percentage such as
+	  'o.3%'
+          And below this display I should see a clickable 'continue' button in green
+	  
+Scenario: User Identifies Paid Trade Union Activities
+          Given I have correctly populated the fields on the 'Total Pay Bill' page 
+          When I click 'Continue'
+          Then I should land on a page with the heading in bold stating:
+          'Step 5 of 6'
+          'Paid trade union duties and activities'
+          And below this I should see a sub heading in plain text stating:
+          'What is the total number of hours spent on paid facility time?'
+	  And below this I should see a sub heading in plain text stating:
+	  'This includes paid duties and paid activities'
+	  And below this I should see a free text numeric field with a text limit of 4 characters
+	  And this text field should only allow decimal points of up to 2 places
+	  And below this I should see a sub heading in plain text that states:
+          'What is the total number of hours spent on paid trade union activities?'
+	  And below this I should see a sub heading in plain text stating:
+	  'Activities include union meetings, committee member responsibilities, training and setting out union policy'
+	  And below this I should see a free text numeric field with a text limit of 4 characters
+	  And this text field should only allow decimal points of up to 2 places
+	  And below this I should see text in bold that states:
+	  'The percentage of total hours spent on paid trade union activities is'
+	  And below this I should see large text displayed in bold which shows the auto-calculated percentage of the 2 fields above as a percentage such as
+	  'o.3%'
+	  And below this display I should see plain text stating:
+	  'We will only publish your percentage total.'
+          And below this display I should see a clickable 'continue' button in green
+	  
+
+	  
+	  

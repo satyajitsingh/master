@@ -1,0 +1,9 @@
+---
+applications:
+- name: co-cswp-submit-facility-time
+  command: node start.js
+  memory: 512M
+  instances: 1
+  buildpack: nodejs_buildpack
+  health-check-type: http
+  health-check-http-endpoint: /healthcheck
