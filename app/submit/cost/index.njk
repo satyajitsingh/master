@@ -1,0 +1,52 @@
+{% extends "common/templates/submit-layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Pay &amp; costs - {{title_suffix}}
+{% endblock %}
+
+{% block header %}
+
+	<h1 class="heading-large">
+		<span class="heading-secondary">Step 4 of 6</span>
+		Total pay bill and facility time costs
+	</h1>
+
+{% endblock %}
+
+{% block question %}
+
+	<form action="/submit/cost?id={{submission.id}}" method="post" class="form">
+
+		<div class="form-group {{ m.form_group_class('pay', errors) }}">
+			<a name="pay"></a>
+			<label class="form-label" for="form-field-pay">
+				What is the total pay bill?
+			    <span class="form-hint">
+		          This includes pension and national insurance contributions
+		      	</span>
+			</label>
+			{{ m.error_message('pay', errors) }}
+			&pound; <input class="form-control" id="form-field-pay" name="pay" type="text" value="{{submission.pay}}" autocomplete="off">
+		</div>
+
+		<div class="form-group {{ m.form_group_class('cost', errors) }}">
+			<a name="cost"></a>
+			<label class="form-label" for="form-field-cost">
+				What is the total cost of facility time?
+			</label>
+			{{ m.error_message('cost', errors) }}
+			&pound; <input class="form-control" id="form-field-cost" name="cost" type="text" value="{{submission.cost}}" autocomplete="off">
+		</div>
+
+		<div class="data calculated-group" id="calculated-group-spend" role="region" aria-live="polite">
+			<span class="data-item bold-xsmall">The percentage of pay spent on facility time is</span></br>
+	    	<span class="data-item bold-xxlarge" id="calculated-field-spend"></span>
+	    </div>
+
+	    <div class="form-group">
+	  		<input type="submit" class="button" value="Continue">
+		</div>
+	</form>
+{% endblock %}

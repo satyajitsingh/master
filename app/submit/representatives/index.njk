@@ -1,0 +1,53 @@
+{% extends "common/templates/submit-layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Representatives - {{title_suffix}}
+{% endblock %}
+
+{% block header %}
+
+	<h1 class="heading-large">
+		<span class="heading-secondary">Step 2 of 6</span>
+		Trade union representatives and full-time equivalents (FTE)
+	</h1>
+
+{% endblock %}
+
+{% block question %}
+
+	<form action="/submit/representatives?id={{submission.id}}" method="post" class="form">
+		<div class="form-group {{ m.form_group_class('reps', errors) }}">
+			<a name="reps"></a>
+			<label class="form-label" for="form-field-reps">
+				How many employees were trade union representatives from 1 April 2017 to 31 March 2018?
+			</label>
+			{{ m.error_message('reps', errors) }}
+			<input class="form-control" id="form-field-reps" name="reps" type="text" value="{{submission.reps}}" autocomplete="off">
+		</div>
+
+		<div class="form-group {{ m.form_group_class('ftes', errors) }}">
+			<a name="ftes"></a>
+			<label class="form-label" for="form-field-ftes">
+				What is the FTE number of trade union representatives for this period?
+				<details>
+					<summary><span class="summary">Calculate your FTE</span></summary>
+					<div class="panel panel-border-narrow">
+						This example is based on 1 FTE = 37 hours</br>
+						2 full time employees = 2 FTE employees</br>
+						1 part time (18.5 hours) = 0.5 FTE employees</br>
+						1 part time (25 hours) = 0.7 FTE employees</br>
+						Total FTE = 3.2 FTE employees
+					</div>
+				</details>
+			</label>
+			{{ m.error_message('ftes', errors) }}
+			<input class="form-control" id="form-field-ftes" name="ftes" type="text" value="{{submission.ftes}}" autocomplete="off">
+		</div>
+
+	    <div class="form-group">
+	  		<input type="submit" class="button" value="Continue">
+		</div>
+	</form>
+{% endblock %}

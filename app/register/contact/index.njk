@@ -1,0 +1,84 @@
+{% extends "common/templates/layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Your details - {{title_suffix}}
+{% endblock %}
+
+{% block content %}
+	
+<main id="content" role="main">
+
+	{% include "common/templates/includes/phase.njk" %}
+
+	{% include "common/templates/includes/back.njk" %}
+
+	{% if errors %}
+		{% include "common/templates/includes/errors.njk" %}
+	{% endif %}
+
+	<div class="grid-row">
+  		<div class="column-full">
+
+		    <h1 class="heading-large">
+		      Enter your details
+		    </h1>
+
+		    <form action="/register/contact" method="post" class="form">
+
+				<div class="form-group {{ m.form_group_class('first-name', errors) }}">
+					<a name="first-name"></a>
+			    	<label class="form-label" for="first-name" id="first_name">
+			    		First name
+				    	{{ m.error_message('first-name', errors) }}
+			    	</label>
+			    	<input class="form-control {{first_control_error_class}}" id="first-name" name="first-name" type="text" value="{{cookie.getUserFirstName()}}">
+			    </div>
+
+			    <div class="form-group {{ m.form_group_class('last-name', errors) }}">
+			    	<a name="last-name"></a>
+			    	<label class="form-label" for="last-name">
+			    		Last name
+				    	{{ m.error_message('last-name', errors) }}
+			    	</label>
+			    	<input class="form-control {{last_control_error_class}}" id="last-name" name="last-name" type="text" value="{{cookie.getUserLastName()}}">
+			    </div>
+
+			    <div class="form-group {{ m.form_group_class('email', errors) }}">
+			    	<a name="email" ></a>
+					<label class="form-label" for="email">
+						Work email address
+						<span class="form-hint">
+							For example, name@met.police.uk
+						</span>
+						{{ m.error_message('email', errors) }}
+					</label>
+					<input class="form-control {{email_control_error_class}}"" id="email" name="email" type="text" value="{{cookie.getUserEmail()}}">
+				</div>
+
+				<h2 class="heading-small">How we use your data</h2>
+				<p>We'll use your data to confirm your submission and organisation. We'll also email you should we need to discuss your submission.</p>		
+				<p>Your information will be stored securely and used in line with our <a href="https://www.gov.uk/government/publications/external-contact-information-privacy-notice/external-contact-information-privacy-notice" target="_blank">privacy policy</a>.</p>
+
+
+				<div class="form-group {{ m.form_group_class('consent', errors) }}">
+					{{ m.error_message('consent', errors) }}
+					<div class="multiple-choice">
+						<a name="consent"></a>
+						<input id="consent" name="consent" type="checkbox" value="consent">
+						<label for="consent">I consent to the use of my data to verify my submission</label>
+					</div>
+			    </div>
+
+			    <div class="form-group">
+		      		<input type="submit" class="button" value="Continue">
+		    	</div>
+
+		    </form>
+
+		</div>
+	</div>
+
+ </main>
+{% endblock %}

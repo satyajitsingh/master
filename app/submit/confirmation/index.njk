@@ -1,0 +1,42 @@
+{% extends "common/templates/layout.njk" %}
+
+{% block page_title %}
+	Confirmation - {{title_suffix}}
+{% endblock %}
+
+{% block content %}
+	
+<main id="content" role="main">
+
+	{% include "common/templates/includes/phase.njk" %}
+
+	<div class="grid-row">
+  		<div class="column-two-thirds">
+  		
+			<div class="govuk-box-highlight">
+				<h1 class="heading-xlarge">
+					Submission successfully completed
+				</h1>
+				<p class="font-large">
+					Your reference is <br>
+	          			<strong class="bold">{{submission.id}}</strong>
+				</p>
+			</div>
+
+			<h2 class="heading-medium">What happens next</h2>
+		    <p>We've sent you a confirmation email with a copy of your submission data. </p>
+		    <p>If you have any queries please <a href="mailto:facilitytime@cabinetoffice.gov.uk">contact us</a> using the reference provided. We'll contact you if we need to discuss your submission. </p>
+
+		    <div class="panel panel-border-wide">
+			  <p>
+			    If you realise you've made a mistake with your data, you can <a href="/" target="_blank" title="Return to start page">re-submit it</a> by registering again with the same email address. You must re-submit before midnight on 30 July 2018.
+			  </p>
+			</div>
+
+			 <p><a href="https://www.smartsurvey.co.uk/s/TENSS/" title="Service feedback page">What did you think of this service?</a> (takes 30 seconds)</p>
+
+		</div>
+	</div>
+
+ </main>
+{% endblock %}

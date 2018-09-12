@@ -1,0 +1,152 @@
+{% extends "common/templates/submit-layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Check your answers - {{title_suffix}}
+{% endblock %}
+
+{% block header %}
+
+	<h1 class="heading-large">
+		<span class="heading-secondary">Step 6 of 6</span>
+		Check your answers before sending
+	</h1>
+
+{% endblock %}
+
+{% block question %}
+
+<div class="previous-answers">
+	<div class="done-questions">
+		<h2 class="heading-medium">Employees in your organisation</h2>
+		<table>
+			<tbody>
+				<tr class="section">
+					<td class="previous-question-title">How many employees are in your organisation?</td>
+					<td class="previous-question-body">{{submission.employees}}</td>
+					<td class="link-right">
+						<a href="/submit/employees?id={{submission.id}}">
+							Change<span class="visuallyhidden">"How many employees are in your organisation?"</span>
+						</a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 class="heading-medium">Trade union representatives and full-time equivalents</h2>
+		<table>
+			<tbody>
+				<tr class="section">
+					<td class="previous-question-title">How many employees were trade union representatives for this period?</td>
+					<td class="previous-question-body">{{submission.reps}}</td>
+					<td class="link-right">
+						<a href="/submit/representatives?id={{submission.id}}">
+							Change<span class="visuallyhidden">"How many employees were trade union representatives for this period?"</span>
+						</a> 
+					</td>
+				</tr>
+				<tr class="section">
+					<td class="previous-question-title">What is the FTE number of trade union representatives for this period?</td>
+					<td class="previous-question-body">{{submission.ftes}}</td>
+					<td class="link-right">
+						<a href="/submit/representatives?id={{submission.id}}">
+							Change<span class="visuallyhidden">"What is the FTE number of trade union representatives for this period?"</span>
+						</a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 class="heading-medium">Percentage of working hours spent on facility time</h2>
+		<p>How many trade union representatives spent the following percentages of their working hours on facility time from 1 April 2017 to 31 March 2018?</p>
+		<table>
+			<tbody>
+				{% for category in distributionCategories %}
+					<tr class="section">
+						<td class="previous-question-title">{{category.name}} working hours</td>
+						<td class="previous-question-body">{{submission['dist' + category.id]}}</td>
+						<td class="link-right">
+							<a href="/submit/distribution?id={{submission.id}}">
+								Change <span class="visuallyhidden">"How many trade union representatives spent the following percentages of their working hours on facility time from 1 April 2017 to 31 March 2018?"</span>
+							</a> 
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<h2 class="heading-medium">Total pay bill and facility time costs</h2>
+		<table>
+			<tbody>
+				<tr class="section">
+					<td class="previous-question-title">What is the total pay bill?</td>
+					<td class="previous-question-body">&pound;{{submission.pay}}</td>
+					<td class="link-right">
+						<a href="/submit/cost?id={{submission.id}}">
+							Change <span class="visuallyhidden">"What is the total pay bill?"</span>
+						</a> 
+					</td>
+				</tr>
+				<tr class="section">
+					<td class="previous-question-title">What is the total cost of facility time?</td>
+					<td class="previous-question-body">&pound;{{submission.cost}}</td>
+					<td class="link-right">
+						<a href="/submit/cost?id={{submission.id}}">
+							Change <span class="visuallyhidden">"What is the total cost of facility time?"</span>
+						</a> 
+					</td>
+				</tr>
+				<tr class="section">
+					<td class="previous-question-title">Percentage of pay spent on facility time</td>
+					<td class="previous-question-body">{{submission.cost_p}}%</td>
+					<td class="link-right">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 class="heading-medium">Paid trade union activities</h2>
+		<table>
+			<tbody>
+				<tr class="section">
+					<td class="previous-question-title">What is the total number of hours spent on paid facility time?</td>
+					<td class="previous-question-body">{{submission.facility}}</td>
+					<td class="link-right">
+						<a href="/submit/hours?id={{submission.id}}">
+							Change <span class="visuallyhidden">"What is the total number of hours spent on paid facility time?"</span>
+						</a> 
+					</td>
+				</tr>
+				<tr class="section">
+					<td class="previous-question-title">What is the total number of hours spent on paid trade union activities?</td>
+					<td class="previous-question-body">{{submission.activities}}</td>
+					<td class="link-right">
+						<a href="/submit/hours?id={{submission.id}}">
+							Change <span class="visuallyhidden">"What is the total number of hours spent on paid trade union activities?"</span>
+						</a> 
+					</td>
+				</tr>
+				<tr class="section">
+					<td class="previous-question-title">Percentage of total hours spent on paid facility time</td>
+					<td class="previous-question-body">{{submission.hours_p}}%</td>
+					<td class="link-right">&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+<form action="/submit/check?id={{submission.id}}" method="post" class="form">
+	<h2 class="heading-medium">Send your submission</h2>
+
+	<p class="text">
+		By submitting this information you're confirming that the details you've provided are correct to the best of your knowledge.
+	</p>
+
+	<div class="form-group">
+		<input type="submit" class="button" value="Submit">
+	</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "common/templates/layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Error - {{title_suffix}}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+	{% include "common/templates/includes/phase.njk" %}
+
+	<div class="grid-row">
+  		<div class="column-two-thirds">
+
+	    	<h1 class="heading-large">
+				Sorry, we couldn't find that page
+			</h1>
+
+			<p class="lede">
+			  If you entered a web address please check it was correct.
+			</p>
+								    
+		</div>
+	</div>
+
+ </main>
+
+{% endblock %}

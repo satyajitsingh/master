@@ -1,0 +1,38 @@
+{% extends "common/templates/submit-layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Distribution - {{title_suffix}}
+{% endblock %}
+
+{% block header %}
+
+	<h1 class="heading-large">
+		<span class="heading-secondary">Step 3 of 6</span>
+		Percentage of working hours spent on facility time
+	</h1>
+
+{% endblock %}
+
+{% block question %}
+	<form action="/submit/distribution?id={{submission.id}}" method="post" class="form">
+
+		<p>How many trade union representatives spent the following percentages of their working hours on facility time from 1 April 2017 to 31 March 2018?</p>
+
+		{% for category in categories %}
+			<div class="form-group {{ m.form_group_class('dist-' + category.id, errors) }}">
+				<a name="dist-{{category.id}}"></a>
+				<label class="form-label" for="form-field-dist-{{category.id}}">
+					{{category.name}} working hours
+				</label>
+				{{ m.error_message('dist-' + category.id, errors) }}
+				<input class="form-control" id="form-field-dist-{{category.id}}" name="dist-{{category.id}}" type="text" value="{{submission['dist' + category.id]}}" autocomplete="off">
+			</div>
+		{% endfor %}
+
+	    <div class="form-group">
+	  		<input type="submit" class="button" value="Continue">
+		</div>
+	</form>
+{% endblock %}

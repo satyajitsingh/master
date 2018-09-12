@@ -1,0 +1,39 @@
+{% extends "common/templates/layout.njk" %}
+
+{% block page_title %}
+	Confirm your email - {{title_suffix}}
+{% endblock %}
+
+{% block content %}
+	
+<main id="content" role="main">
+	{% include "common/templates/includes/phase.njk" %}
+
+	<div class="grid-row">
+  		<div class="column-two-thirds">
+  		
+		<div class="govuk-box-highlight">
+			<h1 class="heading-xlarge">
+				Confirm your email <br /> address
+			</h1>
+			<p class="font-large">
+				We've sent you a link to <br />verify your email address
+			</p>
+			<p class="font-medium"
+				<strong class="bold">{{cookie.getUserEmail()}}</strong>
+			</p>
+		</div>
+
+		<h2 class="heading-medium">What happens next</h2>
+
+		<p>You must confirm your email address within 12 hours.</p>
+		<p>Once you've confirmed your email address you'll be able to enter your organisation's facility time data.</p>
+
+		<h2 class="heading-medium">Can't find the email?</h2>
+		<p>Please wait a few minutes and check your spam folder. If you haven't received an email please <a href="mailto:facilitytime@cabinetoffice.gov.uk" target="_blank">contact us</a>.</p>
+
+		</div>
+	</div>
+
+ </main>
+{% endblock %}

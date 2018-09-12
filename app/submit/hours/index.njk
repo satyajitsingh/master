@@ -1,0 +1,59 @@
+{% extends "common/templates/submit-layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Hours - {{title_suffix}}
+{% endblock %}
+
+{% block header %}
+
+	<h1 class="heading-large">
+		<span class="heading-secondary">Step 5 of 6</span>
+		Paid trade union activities
+	</h1>
+
+{% endblock %}
+
+{% block question %}
+
+	<form action="/submit/hours?id={{submission.id}}" method="post" class="form">
+
+		<div class="form-group {{ m.form_group_class('facility', errors) }}">
+			<a name="time"></a>
+			<label class="form-label" for="form-field-facility">
+				What is the total number of hours spent on paid facility time?
+			    <span class="form-hint">
+		          This includes paid duties and paid activities
+		      	</span>
+			</label>
+			{{ m.error_message('facility', errors) }}
+			<input class="form-control" id="form-field-facility" name="facility" type="text" value="{{submission.facility}}" autocomplete="off">
+		</div>
+
+		<div class="form-group {{ m.form_group_class('activities', errors) }}">
+			<a name="activities"></a>
+			<label class="form-label" for="form-field-activities">
+				What is the total number of hours spent on paid trade union activities?
+				<span class="form-hint">
+		          Paid trade union activities may include activities such as meetings of the union where the business of the union is under discussion
+		      	</span>
+			</label>
+			{{ m.error_message('activities', errors) }}
+			<input class="form-control" id="form-field-activities" name="activities" type="text" value="{{submission.activities}}" autocomplete="off">
+		</div>
+
+		<div class="data calculated-group" id="calculated-group-hours" role="region" aria-live="polite">
+			<span class="data-item bold-xsmall">The percentage of total hours spent on paid trade union activities is</span></br>
+	    	<span class="data-item bold-xxlarge" id="calculated-field-hours"></span>
+	    </div>
+
+	    <div class="panel panel-border-wide">
+		  <p>We will only publish your percentage total.</p>
+		</div>
+
+	    <div class="form-group">
+	  		<input type="submit" class="button" value="Continue">
+		</div>
+	</form>
+{% endblock %}

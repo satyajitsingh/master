@@ -1,0 +1,56 @@
+{% extends "common/templates/layout.njk" %}
+
+{% import "common/templates/includes/macros.njk" as m %}
+
+{% block page_title %}
+	Employees - {{title_suffix}}
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+
+	{% include "common/templates/includes/phase.njk" %}
+
+	{% include "common/templates/includes/back.njk" %}
+
+	{% if errors %}
+		{% include "common/templates/includes/errors.njk" %}
+	{% endif %}
+
+	<div class="grid-row">
+  		<div class="column-two-thirds">
+
+			<a name="function"></a>
+			<h1 class="heading-large">
+				Which function are you reporting on behalf of?
+			</h1>
+			<p>If you are reporting for more than one function, you will need to repeat this process for each. You can use the same link received in your confirmation email for each submission.</p>
+		    
+		   	<form action="/submit/scope?id={{submission.id}}" method="post" class="form">
+				<div class="form-group {{ m.form_group_class('function', errors) }}">
+					<fieldset>
+						{{ m.error_message('function', errors) }}
+						{% for function in functions %}
+							<div class="multiple-choice">
+								{% if function.get('Id') == submission.function %}
+									<input id="option-{{function.get('Id')}}" type="radio" name="function" value="{{function.get('Id')}}" checked="checked">
+								{% else %}
+									<input id="option-{{function.get('Id')}}" type="radio" name="function" value="{{function.get('Id')}}">
+								{% endif %}	
+								<label for="option-{{function.get('Id')}}">{{function.get('Name')}}</label>
+							</div>
+						{% endfor %}
+					</fieldset>
+				</div>
+
+			    <div class="form-group">
+			  		<input type="submit" class="button" value="Continue">
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+ </main>
+
+{% endblock %}
